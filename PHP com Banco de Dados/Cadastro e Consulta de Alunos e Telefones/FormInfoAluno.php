@@ -5,9 +5,9 @@
     $cidade = $_POST['cidade'];
     $cep = $_POST['cep'];
     
-    $link = mysqli_connect("localhost", "root", "", "recodepro");
+    $conection = mysqli_connect("localhost", "Teste", "", "sistema_escolar");
  
-    if (!$link)
+    if (!$conection)
     {
         die ("Falha na conexão com o BD " . mysqli_connect_errno());
         exit();
@@ -26,23 +26,23 @@
     echo $cep;
     echo "<br>";
 
-    $insere = "insert into aluno (nome, endereco, bairro, cidade, cep)
-    values ('$nome', '$endereco','$bairro', '$cidade', '$cep')";
+    $SQLInsert = "INSERT INTO ALUNO (NOME, ENDERECO, BAIRRO, CIDADE, CEP)
+    VALUES ('$nome', '$endereco', '$bairro', '$cidade', '$cep')";
   
-    mysqli_query ($link, $insere);
-     echo "<br>";
+    mysqli_query($conection, $SQLInsert);
+    echo "<br>";
     echo "Aluno incluido com sucesso";
 
-    mysqli_close($link);
+    mysqli_close($conection);
 ?>
 
 <html>
     <head>
-        <title>Formulario</title>
+        <title>Formulario de Insercao de Dados</title>
     </head>
     <body>
         <p><font face="Arial, Helvetica, sans-serif" size="4">
-            <a href="sqlinsertaluno.php">Clique aqui para voltar ao formulrio</a>
-        </font>
+            <a href="SQLInsertAluno.php">Clique aqui para voltar ao formulrio</a>
+        </font></p>
     </body>
 </html>

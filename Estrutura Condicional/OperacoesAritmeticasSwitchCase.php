@@ -3,9 +3,9 @@
     valor numérico ou um símbolo que represente as operação aritmética.
     As operações a serem executadas são: soma; subtração; multiplicação; divisão e resto da divisão.*/
 
-    $operacao = "+";
-    $num1 = 50;
-    $num2 = 32;
+    $operacao = "/";
+    $num1 = 5;
+    $num2 = 5;
 
     switch ($operacao)
     {

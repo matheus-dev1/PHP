@@ -2,11 +2,11 @@
     $id_aluno = $_POST['id_aluno'];
     $telefone = $_POST['telefone'];
         
-    $link = mysqli_connect("localhost", "root", "", "recodepro");
+    $conexao = mysqli_connect("localhost", "Teste", "", "sistema_escolar");
  
-    if (!$link)
+    if (!$conexao)
     {
-        die ("Falha na conexão com o BD " . mysqli_connect_errno());
+        die("Falha na conexão com o BD " . mysqli_connect_errno());
         exit();
     }
 
@@ -16,14 +16,13 @@
     echo "<br>";
     echo $telefone;
     
-    $insere = "insert into telefone (id_aluno, telefone)
-    values ('$id_aluno', '$telefone')";
+    $SQLInsert = "INSERT INTO TELEFONE (id_aluno, telefone) VALUES ('$id_aluno', '$telefone')";
   
-    mysqli_query ($link, $insere);
-     echo "<br>";
+    mysqli_query ($conexao, $SQLInsert);
+    echo "<br>";
     echo "Telefone incluido com sucesso";
 
-    mysqli_close($link);
+    mysqli_close($conexao);
 ?>
 
 <html>
@@ -32,7 +31,7 @@
     </head>
     <body>
         <p><font face="Arial, Helvetica, sans-serif" size="4">
-            <a href="sqlinserttelefone.php">Clique aqui para voltar ao formulrio</a>
-        </font>
+            <a href="SQLInsertTelefone.php">Clique aqui para voltar ao formulrio</a>
+        </font></p>
     </body>
 </html>

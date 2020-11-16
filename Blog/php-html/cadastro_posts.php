@@ -22,7 +22,7 @@
             <div class="col-8 mx-auto pt-2 container-login">
                 <!--<span class="h3">Login</span>-->
                 <h3 class="mb-4">Cadastro de Posts</h3>
-                <form action="./actions/cadastrar_posts.php" method="POST">
+                <form action="./actions/cadastrar_posts.php" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <label for="titulo" class="label-form">Titulo: </label>
                         <input class="form-control" type="text" name="titulo" id="titulo" onkeyup="valida_campos()">
@@ -30,6 +30,10 @@
                     <div class="form-group">
                         <label for="conteudo" class="label-form">Conteudo: </label>
                         <textarea class="form-control" name="conteudo" id="conteudo" onkeyup="valida_campos()"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagem" class="label-form">Imagem: </label>
+                        <input type="file" name="imagem" id="imagem">
                     </div>
                     <button type="submit" name="cadastrar" class="btn btn-success mb-2" id="cadastrar_autores">Cadastrar</button>
                 </form>

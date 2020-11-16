@@ -26,15 +26,10 @@
     </div>
     <table class="table table-striped table-over table-responsive">
         <tr>
-            <th>
-                ID: 
-            </th>
-            <th>
-                TITULO: 
-            </th>
-            <th>
-                CONTEUDO: 
-            </th>
+            <th>ID: </th>
+            <th>IMAGEM: </th>
+            <th>TITULO: </th>
+            <th>CONTEUDO: </th>
         </tr>
         <?php
             while ($row = mysqli_fetch_assoc($resultado)){
@@ -42,6 +37,10 @@
             <tr>
                 <td>
                     <?php echo $row['ID'] ?>
+                </td>
+                <td>
+                    <img src="<?php echo $row['imagem'] ?>" alt="img" class="img-thumbnail img-fluid" style="width: 150px">
+                    
                 </td>
                 <td>
                     <?php echo $row['TITULO'] ?>

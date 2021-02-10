@@ -1,0 +1,14 @@
+[
+    {
+        "Sempre Aspas Duplas": "",
+        "JSON": "Json eh um formatro de troca de informacoes universal ou seja, todas as linguagens e software conseguem trocar ou consumir informacoes json.",
+        "Objetos JSON": "Se nos quisermos trabalhar com mais de uma objeto json, nos temos que criar um ARRAY de objetos Json."
+    },
+    {
+        "SOAP": "XML",
+        "REST e RESTFULL": "JSON",
+    
+        "MongoDB": "BJSON"
+    }
+
+]

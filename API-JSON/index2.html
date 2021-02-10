@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API do Github</title>
+</head>
+<body>
+    <button onclick="getApiGithub()">Fotos Ususarios GitHub</button>
+    <div id="users"></div>
+    <script>
+        const url = "https://api.github.com/users";
+        async function getApiGithub ()
+        {
+            const response = await fetch(url)
+            const data = await response.json()
+
+            const div = document.getElementById('users')
+            
+            data.map((dataAny) => {
+                div.innerHTML += `<img src="${dataAny.avatar_url}" width="200"></img>`
+            })
+        }
+    </script>
+</body>
+</html>

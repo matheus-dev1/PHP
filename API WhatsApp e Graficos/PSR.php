@@ -1,11 +1,14 @@
 <?php
-
 //Guia de estilo de PST - PHP-FIG
 //PSR's sao regras e especificacoes que noa podemos aplicar no nosso codigo.
 
 //PSR - 1 | Basic Coding Standard | Padrao basico de Codificacao.
 //PSR - 2 | Coding Style Guide | Guia de Estilo de codificacao.
-//PST - 4 | Autoloader | Autoload de arquivos.
+//PSR - 4 | Autoloader | Autoload de arquivos.
+//PSR - 12 | Extended Coding Style Guide | Extensao de estilo de codificacao.
+//Obs: Atualmente a PSR 2 esta descontinuada, porem a PSR 4 eh uma PSR que abrange a PSR 2.
+
+namespace Source;//Sempre que eu tenho uma classe eu tenho que ter no minino um namespace.
 
 //Classes StudlyCaps(PascalCase)
 class User//O nome do meu arquivo deve ser o mesmo da minha classe.
@@ -18,7 +21,7 @@ class User//O nome do meu arquivo deve ser o mesmo da minha classe.
     //Os atributos de uma classe podem utilizar o padrão underscore,
     //camelCase ou StudlyCaps, não existe uma restrição.
     public $nome_usuario; //Underscore
-    public $nomeUsuario; //Camel Case
+    public $nomeUsuario; //CamelCase
     public $NomeUsuario; //StudlyCaps
 
     public function getNome() //CamelCase

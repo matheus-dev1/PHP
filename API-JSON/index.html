@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API</title>
+</head>
+<body>
+    <button onclick="getStates()">Dados dos Estados</button>
+    <button onclick="getStates2()">Dados dos Estados 2</button>
+    <button onclick="getStatesApi()">Dados dos Estados com Async e Await</button>
+    <ul id="lista-estados"></ul>
+    <script>
+        const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+        // Em codigos sincronos ele executa linha a linha sendo que a linha anterior tem que ser executada por completo para a proxima ser executada.
+
+        // Diferentes de codigos assincronos ele nao necessarimente precisa esperar por exemplo um looping terminar para executar a proxima linha.
+
+        // Uma Promisse e um objeto que representa sucesso ou falha de uma operacao.
+        function getStates ()
+        {
+            fetch(url).then(function (response) {
+                // Fetch vai buscar o cafe.
+                    return response.json()
+                    // Primeiro .then() com a funcao de callback tras o cafe
+                }).then(function (data) {
+                    console.log(data)
+                    // Consumo o cafe
+                });
+        }
+        // fetch buscar os dados.
+        // then significa entao, ou seja, depois de buscado alguma coisa pela funaco fetch faca.
+        // O metodo then precisa de uma funcao de callback, sendo um argumento o response da busca pela url. Normalmente usamos o nome response.
+        // Obs: Sempre que o resultado de uma operacao for Promisse nos temos que usar o .then()
+        // Depois nos retornamos response.json para outro .then para colocar outra funcao de callback e ai sim consumir a api.
+        
+        // 100, indica que a solicitação foi recebida.
+        // 200, indica sucesso da solicitação.
+        // 301, indica que uma página foi movida para outro endereço.
+        // 302, indica que uma página foi movida temporariamente.
+        // 400, indica que a solicitação está incorreta.
+        // 403, indica que o acesso é proibido.
+        // 404, indica que a página não foi encontrada.
+        // 410, indica que o recurso não está mais disponível.
+        // 500, indica um erro interno do servidor.
+        function getStates2 ()
+        {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    let li = document.getElementById("lista-estados");
+
+                    // for (let indice = 0; indice < data.length; indice++) {
+                    //     li.innerHTML = li.innerHTML + `<li> ${data[indice].nome} </li>`
+                    //     // Quando eu trabalho com objeto literal eu sempre preciso de um indice e um .para saber o que eu eu quero buscar.
+                    // }
+
+                    // for (dataAny of data) {
+                    //     li.innerHTML = li.innerHTML + `<li> ${dataAny.nome} </li>`
+                    // }
+
+                    data.map((dataAny) => {
+                        li.innerHTML = li.innerHTML + `<li> ${dataAny.nome} </li>`
+                    })
+                });
+        }
+
+        async function getStatesApi ()
+        {
+            const response = await fetch(url)
+            // await quer dizer espere esta operacao ser resolvida e atribua a esta variavel.
+            // OBs: await apenas funciona com funcoes assincrona.
+            const data = await response.json()
+            console.log(data)
+        }
+    </script>
+</body>
+</html>
